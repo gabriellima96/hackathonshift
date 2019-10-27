@@ -1,68 +1,64 @@
-<!-- <DIV id="navbar">
-  <ul>
-    <li><h2>BLUGO</h2></li>
-  </ul>
-</nav> -->
 <mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <span>Blugo</span>
-  </mat-toolbar-row>
+    <mat-toolbar-row>
+        <span>Blugo</span>
+    </mat-toolbar-row>
 </mat-toolbar>
 <div class="wrapper">
-  <div class="wrapper2">
+    <div class="wrapper2">
 
-    <div class="all-posts">
-      <div class="main-post" *ngFor="let item of data; index as i;">
-        <div class="header-post">
-          <div class="profile-post">
-            <img class="picture-post" src="{{item.image}}" />
-            <div class="name-date-post">
-              <!-- <p class="name-post">{{item.name}}</p> -->
-              <div class="name-post">{{item.name}}</div>
-              <div class="date-post">{{item.country}}</div>
+        <div class="all-posts">
+            <div class="main-post" *ngFor="let item of data; index as i;">
+                <div class="header-post">
+                    <div class="profile-post">
+                        <!-- <img class="picture-post" src="{{item.image}}" /> -->
+                        <div class="name-date-post">
+                            <!-- <p class="name-post">{{item.name}}</p> -->
+                            <div class="name-post">{{item.user}}</div>
+                            <div class="date-post">{{item.country}}</div>
+                        </div>
+                        <!-- <i class="material-icons">favorite</i>s -->
+                        <div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-post">
+                    {{item.name}} disse:
+                    {{item.coments}}
+                </div>
+
             </div>
-            <i class="material-icons">favorite</i>
-            <div>
-            </div>
-          </div>
-        </div>
 
-        <div class="content-post">
-          {{item.coments}}
-        </div>
+            <br>
 
-      </div>
+            <div class="all-posts">
+                <div class="main-post">
+                    <div class="header-post">
+                        <div class="profile-post">
 
-      <br>
+                            <div class="name-date-post">
+                                <form class="example-form">
+                                    <mat-form-field class="example-full-width">
+                                        <input #name matInput placeholder="Seu nome aqui">
+                                    </mat-form-field>
+                                </form>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
 
-      <div class="all-posts">
-        <div class="main-post">
-          <div class="header-post">
-            <div class="profile-post">
+                    <div class="content-post">
+                        <mat-form-field class="example-full-width">
+                            <textarea #comment matInput placeholder="Diga alguma coisa legal..."></textarea>
+                        </mat-form-field>
+                    </div>
 
-              <div class="name-date-post">
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Seu nome aqui">
-                  </mat-form-field>
-                </form>
-              </div>
-              <div>
-              </div>
-            </div>
-          </div>
-
-          <div class="content-post">
-            <mat-form-field class="example-full-width">
-              <textarea matInput placeholder="Diga alguma coisa legal..."></textarea>
-            </mat-form-field>
-          </div>
-
-          <div class="bottom-post">
-              <!-- <div class="like-post"></div>
+                    <div  style="text-align: center; padding: 2%;">
+                        <!-- <div class="like-post"></div>
               <div class="comment-post"></div>
               <div class="share-post"></div> -->
-              <button mat-button color="primary">COMPARTILHAR</button>
+                        <button style="font-size: 18px; padding: 2%" mat-button color="primary" (click)="enviar(comment, name)">COMPARTILHAR</button>
             </div>
         </div>
 
