@@ -8,7 +8,8 @@ import { AngularFireDatabase } from "@angular/fire/database";
 })
 export class AppComponent {
   title = "Comments";
-  private PATH = "/comments";
+  private PATH = "/posts";
+  data;
 
   constructor(private db: AngularFireDatabase) {
     this.index()
@@ -18,8 +19,11 @@ export class AppComponent {
     return this.db
       .list(this.PATH)
       .snapshotChanges()
-      .subscribe(item => {
-        console.log(item);
+      .subscribe(items => {
+        // console.log(items);
+        this.data = items.map(item => ({ key: item.key, ...item.payload.val() }));
+        console.log(this.data);
+
       });
   }
 }
